@@ -21,21 +21,21 @@ public class TaskForWork {
         for (int j : arr) {
             if (!uniqueSet.add(j)) list.add(j);                                             // Заполнение коллекции, повторяющимися элементами.
         }
-        if (list.size() > 0) {                                                             // Проверка на содержание повторябщихся элементов в исходном массиве.
+        if (list.size() > 0) {                                                              // Проверка на содержание повторябщихся элементов в исходном массиве.
             for (int i = 0; i < uniqueSet.size(); i++) {                                    // Внешний цикл, содержащий элементы без повторений (будущий ключ HashMap).
-                for (int j = 0; j < list.size(); j++) {                                    // Внутренний цикл, содержащий элементы списка с повторениями (будущее значение HashMap).
+                for (int j = 0; j < list.size(); j++) {                                     // Внутренний цикл, содержащий элементы списка с повторениями (будущее значение HashMap).
                     if (Objects.equals(uniqueSet.stream().toList().get(i), list.get(j))) {  // Сравниваем элементы двух коллекций для колучения количества повторений.
                         count++;
                     }
                     if (j == list.size() - 1) {                                            // Условие на проверку окончания коллекции с ключами HashMap.
-                        map.put(uniqueSet.stream().toList().get(i), count);                 // Заполнение HashMap полученными ключами и значеними.
+                        map.put(uniqueSet.stream().toList().get(i), count);                // Заполнение HashMap полученными ключами и значеними.
                         count = 1;                                                         // Обновление счетчика после добавления одного элемента.
                     }
                 }
             }
         } else {                                                                           // Условие для массива без повторений.
-            for (int i = 0; i < uniqueSet.size(); i++) {                                    // Цикл для обхода всех элементов исходного массива/списка.
-                map.put(uniqueSet.stream().toList().get(i), 1);                             // Заполнение HashMap.
+            for (int i = 0; i < uniqueSet.size(); i++) {                                   // Цикл для обхода всех элементов исходного массива/списка.
+                map.put(uniqueSet.stream().toList().get(i), 1);                            // Заполнение HashMap.
             }
         }
         return map;
